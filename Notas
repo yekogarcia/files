@@ -1,2 +1,12 @@
 https://maketext.io/
 https://jakearchibald.github.io/svgomg/
+
+sudo apt-get install libcap2-bin
+#esto hace que pueda ejecutar node en puerto menor al 1000 como el 80
+sudo setcap cap_net_bind_service=+ep `readlink -f \`which node\``
+
+sudo npm install pm2 -g
+pm2 ls
+pm2 startup
+pm2 start app.js
+pm2 save
